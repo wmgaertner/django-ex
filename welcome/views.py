@@ -1,7 +1,8 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponse
+from .forms import *
 
 from . import database
 from .models import PageView
@@ -22,3 +23,18 @@ def index(request):
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
     return HttpResponse(PageView.objects.count())
+
+def image_view(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('success')
+
+        else:
+            form = ImageForm()
+        return render(request, 'image_formm.html', {'form' : form})
+
+def success(request):
+    return HttpResponse('successfully uploaded')

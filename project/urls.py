@@ -22,7 +22,6 @@ from welcome.views import *
 
 urlpatterns = [
     url(r'^$', image_view),
-    url(r'^health$', success),
 ]
 
 if settings.DEBUG:

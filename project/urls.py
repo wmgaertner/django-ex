@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, url
 from django.conf.urls.static import static
 
 from welcome.views import *
 
 urlpatterns = [
-    path('image_upload', image_view, name = 'image_upload'),
-    path('success', success, name = 'success')
+    url(r'^$', image_view),
+    url(r'^health$', success),
 ]
 
 if settings.DEBUG:

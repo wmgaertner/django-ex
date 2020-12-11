@@ -16,11 +16,9 @@ def image_view(request):
 
         if form.is_valid(): 
             form.save() 
-            return redirect('success') 
+
     else: 
         form = ImageForm() 
     return render(request, 'PyGallery/gallery.html', {'form' : form}) 
 
 
-def success(request):
-    return HttpResponse('successfully uploaded')

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'welcome',
+    'PyGallery',
 ]
 
 MIDDLEWARE = [

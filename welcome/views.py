@@ -1,7 +1,7 @@
 import os
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from .forms import *
 
 from . import database
@@ -28,11 +28,15 @@ def image_view(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
-    return render(request, 'PyGallery/gallery.html', {
-        'hostname': hostname,
-        'database': database.info(),
-        'count': PageView.objects.count()
-    })
+    if request.method == 'POST': 
+        form = ImageForm(request.POST, request.FILES) 
+
+        if form.is_valid(): 
+            form.save() 
+            return redirect('success') 
+    else: 
+        form = ImageForm() 
+    return render(request, 'PyGallery/gallery.html', {'form' : form}) 
 
 
 def success(request):

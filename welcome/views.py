@@ -23,4 +23,4 @@ def image_view(request):
 
 
 def success(request):
-    return HttpResponse(PageView.objects.count())
+    return HttpResponse('successfully uploaded')

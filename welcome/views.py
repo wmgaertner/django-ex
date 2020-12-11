@@ -25,16 +25,15 @@ def health(request):
     return HttpResponse(PageView.objects.count())
 
 def image_view(request):
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
+    hostname = os.getenv('HOSTNAME', 'unknown')
+    PageView.objects.create(hostname=hostname)
 
-        if form.is_valid():
-            form.save()
-            return redirect('success')
+    return render(request, 'PyGallery/gallery.html', {
+        'hostname': hostname,
+        'database': database.info(),
+        'count': PageView.objects.count()
+    })
 
-        else:
-            form = ImageForm()
-        return render(request, 'image_formm.html', {'form' : form})
 
 def success(request):
-    return HttpResponse('successfully uploaded')
+    return HttpResponse(PageView.objects.count())

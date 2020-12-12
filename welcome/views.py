@@ -25,6 +25,6 @@ def image_upload(request):
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 def image_gallery(request):
-    form = ImageForm(request.GET, request.FILES)
+    form = ImageForm(request.POST, request.FILES)
     return render(request, 'PyGallery/gallery.html', {'form': form})
 

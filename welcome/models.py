@@ -9,3 +9,4 @@ class PageView(models.Model):
 class Images(models.Model):
     name = models.CharField(max_length=40)
     image = models.ImageField(upload_to='images/')
+    timestamp = models.DateTimeField(auto_now_add=True)

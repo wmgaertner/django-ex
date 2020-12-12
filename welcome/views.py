@@ -9,16 +9,17 @@ from .models import PageView
 
 # Create your views here.
 
-def image_view(request):
+def image_upload(request):
 
     if request.method == 'POST': 
         form = ImageForm(request.POST, request.FILES) 
 
         if form.is_valid(): 
-            form.save() 
+            form.save()
+            return redirect('PyGallery/gallery.html')
 
     else: 
         form = ImageForm() 
-    return render(request, 'PyGallery/gallery.html', {'form' : form}) 
+    return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 

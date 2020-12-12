@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from welcome.views import *
 
 urlpatterns = [
-    url(r'^$', image_view),
+    url(r'^$', image_upload),
 ]
 
 if settings.DEBUG:

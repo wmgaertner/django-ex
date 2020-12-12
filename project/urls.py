@@ -22,6 +22,7 @@ from welcome.views import *
 
 urlpatterns = [
     url(r'^$', image_upload),
+    url(r'^$', image_gallery)
 ]
 
 if settings.DEBUG:

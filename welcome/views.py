@@ -17,10 +17,12 @@ def image_upload(request):
 
         if form.is_valid(): 
             form.save()
-            return redirect('PyGallery/gallery.html')
+            return redirect('image_gallery')
 
     else: 
         form = ImageForm() 
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
+def image_gallery(request):
+    return render(request, 'PyGallery/gallery.html')
 

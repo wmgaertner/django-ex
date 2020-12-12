@@ -9,6 +9,7 @@ from .models import PageView
 
 # Create your views here.
 
+# url to image = http://django-ex-test.apps-crc.testing/media/images/**image-name**
 def image_upload(request):
 
     if request.method == 'POST': 

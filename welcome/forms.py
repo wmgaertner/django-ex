@@ -6,4 +6,4 @@ class ImageForm(forms.ModelForm):
     class Meta:
 
         model = Images
-        fields = ['name', 'image', 'timestamp']
+        fields = ['name', 'image']

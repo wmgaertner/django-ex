@@ -1,4 +1,5 @@
 import os
+from django.forms.forms import Form
 from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponse, request
@@ -24,5 +25,6 @@ def image_upload(request):
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 def image_gallery(request):
-    return render(request, 'PyGallery/gallery.html')
+    form = ImageForm(request.GET, request.FILES)
+    return render(request, 'PyGallery/gallery.html', {'form': form})
 

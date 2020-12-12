@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 from welcome.views import *
 
 urlpatterns = [
-    url(r'^$', image_upload),
-    url(r'^$', image_gallery)
+    url(r'^upload/$', image_upload),
+    url(r'^gallery/$', image_gallery)
 ]
 
 if settings.DEBUG:

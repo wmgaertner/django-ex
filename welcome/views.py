@@ -1,4 +1,5 @@
 import os
+from project.settings import MEDIA_URL
 from django.forms.forms import Form
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
@@ -26,6 +27,6 @@ def image_upload(request):
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 def image_gallery(request):
-    image = Images.objects.order_by('timestamp').all()
-    return render(request, 'PyGallery/gallery.html', {'images' : image})
+    image = Images.objects.all().order_by('timestamp')
+    return render(request, 'PyGallery/gallery.html', {'images' : image, 'media.url' : settings.MEDIA_URL})
 

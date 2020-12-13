@@ -26,5 +26,6 @@ def image_upload(request):
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 def image_gallery(request):
-    return HttpResponseRedirect('PyGallery/gallery.html')
+    image = Images.objects.order_by('timestamp')
+    return render(request, 'PyGallery/gallery.html', {'image' : image})
 

@@ -23,7 +23,7 @@ from welcome.views import *
 
 urlpatterns = [
     url(r'^$', image_upload),
-    url(r'^gallery/$', image_gallery),
+    url(r'^gallery/$', image_gallery, name='image_gallery'),
 ]
 
 if settings.DEBUG:

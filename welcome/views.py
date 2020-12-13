@@ -27,6 +27,6 @@ def image_upload(request):
     return render(request, 'PyGallery/upload.html', {'form' : form}) 
 
 def image_gallery(request):
-    image = Images.objects.all().order_by('timestamp')
+    image = Images.objects.all()
     return render(request, 'PyGallery/gallery.html', {'images' : image, 'media.url' : settings.MEDIA_URL})
 

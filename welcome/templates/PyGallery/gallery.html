@@ -13,7 +13,7 @@
                 {% for img in image %}
                 <li>
                     <p>Name {{ img.name}}</p>
-                    <img src="{{ img.image.url }}" class="img-responsive" />
+                    <img src="{{ img.image.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
                 </li>
                 {% endfor %}
             </ul>

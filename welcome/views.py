@@ -28,5 +28,6 @@ def image_upload(request):
 
 def image_gallery(request):
     image = Images.objects.all()
-    return render(request, 'PyGallery/gallery.html', {'images' : image, 'media.url' : settings.MEDIA_URL})
+    return render((request, 'PyGallery/gallery.html',
+        {'image' : image, 'media.url' : settings.MEDIA_URL}))
 

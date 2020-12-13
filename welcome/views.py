@@ -28,6 +28,10 @@ def image_upload(request):
 
 def image_gallery(request):
     image = Images.objects.all()
+
+    if request.method == 'POST':
+        return redirect('image_upload')
+
     return render(request, 'PyGallery/gallery.html',
         {'image' : image, 'media.url' : settings.MEDIA_URL})
 

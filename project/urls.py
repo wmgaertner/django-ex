@@ -22,7 +22,7 @@ from django.views.generic import TemplateView
 from welcome.views import *
 
 urlpatterns = [
-    url(r'^$', image_upload),
+    url(r'^$', image_upload, name='image_upload'),
     url(r'^gallery/$', image_gallery, name='image_gallery'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

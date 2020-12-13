@@ -9,17 +9,18 @@
         {% csrf_token %}
         {{form.as_p}}
         <h1>Gallery</h1>
+        <button type=submit>Upload Another Image</button>
         <div>
             <ul>
                 {% for img in image %}
                 <li>
                     <p>Name {{ img.name}}</p>
                     <img src="{{ img.image.url }}" alt="img" />
+                    <p>Uploaded: {{ img.timestamp }}
                 </li>
                 {% endfor %}
             </ul>
         </div>
-        <button type=submit>placeholder</button>
     </form>
 </body> 
 </html> 

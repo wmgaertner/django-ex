@@ -7,6 +7,6 @@ class PageView(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
 class Images(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, default='N/A')
     image = models.ImageField(upload_to='images/')
     timestamp = models.DateTimeField(auto_now_add=True)

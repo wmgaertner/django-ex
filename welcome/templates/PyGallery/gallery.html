@@ -7,7 +7,17 @@
 <body> 
     <form method = "post" enctype="multipart/form-data">
         {{form.as_p}}
-        <h1>Placeholder</h1>
+        <h1>Gallery</h1>
+        <div>
+            <ul>
+                {% for img in image %}
+                <li>
+                    <p>Name {{ img.name}}</p>
+                    <img src="{{ img.image.url }}" class="img-responsive" />
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
         <button type=submit>placeholder</button>
     </form>
 </body> 
